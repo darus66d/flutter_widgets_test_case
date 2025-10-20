@@ -24,15 +24,15 @@ class MyApp extends StatelessWidget {
       // initialRoute: '/second',
       routes: {
         "/home":(context)=>HomeScreen(),
-        // '/second':(context)=>SecondScreen(),
+        '/second':(context)=>SecondScreen(data: 'Hello',),
       },
-      onGenerateRoute: (settings){
-        if(settings.name=='/second'){
-          final args = settings.arguments as ScreenArguments;
-          return MaterialPageRoute(builder: (context)=>SecondScreen(data: args.message));
-        }
-        return null;
-      },
+      // onGenerateRoute: (settings){
+      //   if(settings.name=='/second'){
+      //     final args = settings.arguments as ScreenArguments;
+      //     return MaterialPageRoute(builder: (context)=>SecondScreen(data: args.message));
+      //   }
+      //   return null;
+      // },
 
       onUnknownRoute: (settings){
         return MaterialPageRoute(
