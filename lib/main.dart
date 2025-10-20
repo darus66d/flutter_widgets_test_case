@@ -26,6 +26,7 @@ class MyApp extends StatelessWidget {
         "/home":(context)=>HomeScreen(),
         '/second':(context)=>SecondScreen(),
       },
+
       onUnknownRoute: (settings){
         return MaterialPageRoute(
             builder:(_)=> Scaffold(
