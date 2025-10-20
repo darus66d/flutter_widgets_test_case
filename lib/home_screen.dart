@@ -19,7 +19,6 @@ class HomeScreen extends StatelessWidget {
                   // Navigator.push(
                   //     context,
                   //     MaterialPageRoute(builder: (context)=>SecondScreen()));
-
                   Navigator.pushNamed(context, '/second');
                 },
                 child: Text("Go to Second Screen"))

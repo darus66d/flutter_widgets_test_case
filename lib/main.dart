@@ -13,6 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Navigation',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
@@ -24,6 +25,13 @@ class MyApp extends StatelessWidget {
       routes: {
         "/home":(context)=>HomeScreen(),
         '/second':(context)=>SecondScreen(),
+      },
+      onUnknownRoute: (settings){
+        return MaterialPageRoute(
+            builder:(_)=> Scaffold(
+              body: Center(child: Text("404 - Page Not Found")),
+            ));
+
       },
     );
   }
