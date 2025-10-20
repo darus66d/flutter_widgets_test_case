@@ -23,6 +23,9 @@ class HomeScreen extends StatelessWidget {
                   Navigator.pushNamed(
                       context, '/second',
                       arguments:ScreenArguments("Hello Darus"));
+                  // Navigator.pushReplacementNamed(
+                  //     context,'/second',
+                  //     arguments:ScreenArguments("Hello Darus"));
                 },
                 child: Text("Go to Second Screen"))
           ],
