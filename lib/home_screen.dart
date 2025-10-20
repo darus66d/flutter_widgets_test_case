@@ -16,9 +16,10 @@ class HomeScreen extends StatelessWidget {
           children: [
             ElevatedButton(
                 onPressed:(){
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context)=>SecondScreen()));
+                  // Navigator.push(
+                  //     context,
+                  //     MaterialPageRoute(builder: (context)=>SecondScreen()));
+                  Navigator.pushNamed(context, '/second');
                 },
                 child: Text("Go to Second Screen"))
           ],
