@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class SecondScreen extends StatelessWidget {
-  const SecondScreen({super.key});
+  final String data;
+  const SecondScreen({super.key, required this.data});
   //PopScope
   @override
   Widget build(BuildContext context) {
@@ -16,7 +17,7 @@ class SecondScreen extends StatelessWidget {
                 onPressed:(){
                   Navigator.pop(context);
                   },
-                child: Text("Go Back"))
+                child: Text(data))
           ],
         ),
       ),

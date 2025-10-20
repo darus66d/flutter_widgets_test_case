@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_widgets_test_case/main.dart';
 import 'package:flutter_widgets_test_case/second_screen.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -19,7 +20,9 @@ class HomeScreen extends StatelessWidget {
                   // Navigator.push(
                   //     context,
                   //     MaterialPageRoute(builder: (context)=>SecondScreen()));
-                  Navigator.pushNamed(context, '/second');
+                  Navigator.pushNamed(
+                      context, '/second',
+                      arguments:ScreenArguments("Hello Darus"));
                 },
                 child: Text("Go to Second Screen"))
           ],
