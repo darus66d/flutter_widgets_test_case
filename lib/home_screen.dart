@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_widgets_test_case/main.dart';
-import 'package:flutter_widgets_test_case/second_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -16,17 +15,25 @@ class HomeScreen extends StatelessWidget {
         child: Column(
           children: [
             ElevatedButton(
-                onPressed:(){
+                onPressed:()async{
                   // Navigator.push(
                   //     context,
                   //     MaterialPageRoute(builder: (context)=>SecondScreen()));
-                  Navigator.pushNamed(
+                  // Navigator.pushNamedAndRemoveUntil(context, newRouteName, predicate)
+                  final result = await Navigator.pushNamed(
                       context, '/second',
                       arguments:ScreenArguments("Hello Darus"));
+                  if(result != null){
+                    ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(content: Text("Received $result")),
+                    );
+                  }
                   // Navigator.pushReplacementNamed(
                   //     context,'/second',
                   //     arguments:ScreenArguments("Hello Darus"));
                 },
+
+
                 child: Text("Go to Second Screen"))
           ],
         ),

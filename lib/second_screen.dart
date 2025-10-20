@@ -15,7 +15,7 @@ class SecondScreen extends StatelessWidget {
           children: [
             ElevatedButton(
                 onPressed:(){
-                  Navigator.pop(context);
+                  Navigator.pop(context,"Returned Data");
                   },
                 child: Text(data))
           ],
