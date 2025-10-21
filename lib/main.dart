@@ -21,10 +21,61 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: TabTabScreen(),
+      // home: TabTabScreen(),
+      home: BottomNavScreen(),
     );
   }
 }
+
+
+class BottomNavScreen extends StatefulWidget{
+  BottomNavScreenState createState()=> BottomNavScreenState();
+}
+
+class BottomNavScreenState extends State<BottomNavScreen>{
+  int SelectedPage=0;
+  final List pages=[
+    HomePage(),
+    ProfilePage(),
+    NotificationPage(),
+    HelpPage(),
+    AboutPage(),
+  ];
+  void onItemTapped(int index){
+    setState(() {
+      SelectedPage=index;
+    });
+
+  }
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text("Bottom Navigation"),),
+      body: pages[SelectedPage],
+      bottomNavigationBar: BottomNavigationBar(
+         currentIndex: SelectedPage,
+        onTap: onItemTapped,
+        type: BottomNavigationBarType.fixed,
+        items: [
+          BottomNavigationBarItem(icon: Icon(Icons.home),label: 'Home'),
+          BottomNavigationBarItem(icon: Icon(Icons.person),label: "Profile"),
+          BottomNavigationBarItem(icon: Icon(Icons.notifications),label: "Notification"),
+          BottomNavigationBarItem(icon: Icon(Icons.help),label: "Help"),
+          BottomNavigationBarItem(icon: Icon(Icons.info_rounded),label: "About"),
+        ],
+      ),
+    );
+  }
+}
+
+
+
+
+
+
+
+
+
 
 class TabTabScreen extends StatelessWidget{
   const TabTabScreen({super.key});
