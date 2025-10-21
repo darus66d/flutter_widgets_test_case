@@ -22,7 +22,8 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       // home: TabTabScreen(),
-      home: BottomNavScreen(),
+      // home: BottomNavScreen(),
+      home: appBarScreenIcon(),
     );
   }
 }
@@ -69,11 +70,48 @@ class BottomNavScreenState extends State<BottomNavScreen>{
 }
 
 
+class appBarScreenIcon extends StatefulWidget{
+  const appBarScreenIcon({super.key});
 
+  @override
+  appBarScreen createState()=>appBarScreen();
 
+}
 
+class appBarScreen extends State<appBarScreenIcon>{
+  int SelectedPage = 0;
+  final List pages =[
+    HomePage(),
+    NotificationPage(),
+    ProfilePage(),
+    HelpPage(),
+    AboutPage(),
+  ];
 
+  onIconTap(int index){
+    setState(() {
+      SelectedPage =index;
+    });
+  }
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("App bar"),
+        backgroundColor: Colors.blueGrey,
+        actions: [
+          IconButton(onPressed: ()=>onIconTap(0), icon: Icon(Icons.home)),
+          IconButton(onPressed: ()=>onIconTap(1), icon: Icon(Icons.person)),
+          IconButton(onPressed: ()=>onIconTap(2), icon: Icon(Icons.notifications)),
+          IconButton(onPressed: ()=>onIconTap(3), icon: Icon(Icons.help)),
+          IconButton(onPressed: ()=>onIconTap(3), icon: Icon(Icons.info_outline)),
+        ],
+      ),
+      body: pages[SelectedPage],
+    );
+  }
 
+}
 
 
 
