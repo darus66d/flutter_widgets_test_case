@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_widgets_test_case/pages/About.dart';
-import 'package:flutter_widgets_test_case/pages/help_page.dart';
-import 'package:flutter_widgets_test_case/pages/home_page.dart';
-import 'package:flutter_widgets_test_case/pages/notification_page.dart';
-import 'package:flutter_widgets_test_case/pages/profile_page.dart';
+import 'package:flutter_widgets_test_case/top_tap_bar_pages/About.dart';
+import 'package:flutter_widgets_test_case/top_tap_bar_pages/help_page.dart';
+import 'package:flutter_widgets_test_case/top_tap_bar_pages/home_page.dart';
+import 'package:flutter_widgets_test_case/top_tap_bar_pages/notification_page.dart';
+import 'package:flutter_widgets_test_case/top_tap_bar_pages/profile_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -32,12 +32,15 @@ class TabTabScreen extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
    return DefaultTabController(
-       length: 4,
+       length: 5,
        child: Scaffold(
          appBar: AppBar(
-           title: Center(child: Text("Top Tab Bar with 4 pages")),
+           title: Center(child: Text("Top Tab Bar with 5 top_tap_bar_pages")),
            bottom: TabBar(
-             isScrollable: true,
+             // isScrollable: true,
+             // tabAlignment: TabAlignment.start,
+             isScrollable: false,
+               tabAlignment: TabAlignment.fill,
                tabs: [
                  Tab(text: 'Home',),
                  Tab(text: 'Profile',),
