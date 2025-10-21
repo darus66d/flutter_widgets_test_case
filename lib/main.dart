@@ -23,9 +23,68 @@ class MyApp extends StatelessWidget {
       ),
       // home: TabTabScreen(),
       // home: BottomNavScreen(),
-      home: appBarScreenIcon(),
+      // home: appBarScreenIcon(),
+      home: drawerNavScreen(),
     );
   }
+}
+
+
+class drawerNavScreen extends StatefulWidget{
+  const drawerNavScreen({super.key});
+
+  @override
+  drawerNavScreenState createState()=> drawerNavScreenState();
+}
+
+class drawerNavScreenState extends State<drawerNavScreen>{
+  @override
+  Widget build(BuildContext context) {
+    int selectedPages=0;
+    final List pages=[
+      HomePage(),
+      ProfilePage(),
+      NotificationPage(),
+      HelpPage(),
+      AboutPage(),
+    ];
+    onTapDrawer(int index){
+      setState(() {
+        selectedPages =index;
+      });
+
+      Navigator.pop(context);
+    }
+
+
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Drawer Navigation"),
+        backgroundColor: Colors.blueGrey,
+      ),
+      body: pages[selectedPages],
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: [
+            DrawerHeader(
+              decoration: BoxDecoration(
+                color: Colors.deepOrange,
+              ),
+                child: Center(child: Text("Darus Salam"))
+            ),
+            ListTile(leading: Icon(Icons.home),title:Text("Home"),onTap: ()=>onTapDrawer(0),),
+            ListTile(leading: Icon(Icons.person),title:Text("Profile"),onTap: ()=>onTapDrawer(1),),
+            ListTile(leading: Icon(Icons.notifications),title:Text("Notification"),onTap: ()=>onTapDrawer(2),),
+            ListTile(leading: Icon(Icons.help_center),title:Text("Help"),onTap: ()=>onTapDrawer(3),),
+            ListTile(leading: Icon(Icons.info),title:Text("About"),onTap: ()=>onTapDrawer(4),),
+          ],
+        ),
+      ),
+    );
+
+  }
+
 }
 
 
